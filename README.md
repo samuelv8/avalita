@@ -7,11 +7,11 @@ Aplicação usando a Web, a Programação Orientada a Objetos e Python
 Sistema de avaliação de professores dentre os alunos do ITA.
 
 ### Solução
-Um site em que alunos que já concluíram determinada matéria podem votar em critérios como facilidade da disciplina, didática do professor na disciplina, coerência do professor na avaliação da disciplina. Além disso, qualquer aluno que já cursou disciplinas ou teve outro tipo de contato com determinado professor poderia avaliar o professor em critérios pessoais não vinculado à disciplina.
+Um site em que alunos que já concluíram determinada matéria podem votar em critérios como facilidade da disciplina, didática do professor na disciplina, coerência do professor na avaliação da disciplina, dentre outros. Além disso, qualquer aluno que já tenha cursado disciplinas ou que já tenha tido outro tipo de contato com determinado professor pode avaliá-lo critérios pessoais (não vinculados às disciplinas).
 
-- Área: educação
-- Público-alvo: alunos de graduação do ITA
-- Dor: dificuldade de escolha de eletivas
+- Área: Educação
+- Público-alvo: Alunos de graduação do ITA
+- Dor: Dificuldade de escolha de eletivas
 
 ### Realizações esperadas
 - Auxiliar que os alunos escolham disciplinas eletivas
@@ -28,9 +28,9 @@ Um site em que alunos que já concluíram determinada matéria podem votar em cr
 ### Motivação
 Todo começo de semestre, na época de escolha de eletivas, sempre enchem os grupo de WhatsApp em que há mais de uma turma de alunos do ITA com perguntas como "você conhece tal professor?" ou "tal disciplina é bizu?". Os alunos menos experientes buscam uma orientação com outros alunos veteranos em relação a qual disciplina escolher.
 
-Essa situação aflige bastante os alunos. Muitas vezes tais comentários podem ser enviesados por uma experiência ruim, e o julgamento final do calouro é bastante subjetivo. Com o avalITA, o aluno que tiver em dúvida entre duas eletivas poderá fazer uma decisão mais precisa, pois critérios quantitativos além dos qualitativos já fornecidos pelos veteranos.
+Essa situação aflige bastante os alunos. Muitas vezes tais comentários podem ser enviesados por uma experiência ruim, e o julgamento final do calouro é bastante subjetivo. Com o avalITA, o aluno que tiver em dúvida entre duas eletivas poderá fazer uma decisão mais precisa, embasada em critérios quantitativos além dos qualitativos já fornecidos pelos veteranos.
 
-Outro fator que nos motiva a esse projeto é que ele já tinha sido iniciado pelo [@Atsocs](https://github.com/Atsocs), de modo que a equipe dos [@Mágicos](https://github.com/Magicos-de-CES-22/) já tem uma velocidade inicial no desenvolvimento do avalITA.
+Outro fator que nos motiva a esse projeto é que ele já tinha sido iniciado pelo [@Atsocs](https://github.com/Atsocs), de modo que a equipe dos [@Mágicos](https://github.com/Magicos-de-CES-22/) não precisa partir do zero absoluto.
 
 ### Importância
 Previsão de forte impacto na comunidade iteana, entre as turmas que estão cursando o ITA agora e que cursarão no futuro.
