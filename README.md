@@ -4,10 +4,10 @@ _Projeto 2 de CES-22_
 Aplicação usando a Web, a Programação Orientada a Objetos e Python
 
 ## O quê?
-Sistema de avaliação de professores dentre os alunos do ITA.
+Sistema de avaliação de professores por parte dos alunos do ITA.
 
 ### Solução
-Um site em que alunos que já concluíram determinada matéria podem votar em critérios como facilidade da disciplina, didática do professor na disciplina, coerência do professor na avaliação da disciplina, dentre outros. Além disso, qualquer aluno que já tenha cursado disciplinas ou que já tenha tido outro tipo de contato com determinado professor pode avaliá-lo critérios pessoais (não vinculados às disciplinas).
+Um site em que alunos que já concluíram determinada matéria podem votar em critérios como facilidade da disciplina, didática do professor na disciplina, coerência do professor na avaliação da disciplina, dentre outros. Além disso, qualquer aluno que já tenha cursado disciplinas ou que já tenha tido outro tipo de contato com determinado professor pode avaliá-lo em critérios pessoais (não vinculados às disciplinas).
 
 - Área: Educação
 - Público-alvo: Alunos de graduação do ITA
@@ -26,7 +26,7 @@ Um site em que alunos que já concluíram determinada matéria podem votar em cr
 ## Por quê? 
 
 ### Motivação
-Todo começo de semestre, na época de escolha de eletivas, sempre enchem os grupo de WhatsApp em que há mais de uma turma de alunos do ITA com perguntas como "você conhece tal professor?" ou "tal disciplina é bizu?". Os alunos menos experientes buscam uma orientação com outros alunos veteranos em relação a qual disciplina escolher.
+Todo começo de semestre, na época de escolha de eletivas, os grupo de WhatsApp em que há mais de uma turma de alunos do ITA são lotados com perguntas do tipo "você conhece tal professor?" ou "tal disciplina é bizu?". Os alunos menos experientes buscam uma orientação com outros alunos veteranos em relação a qual disciplina escolher.
 
 Essa situação aflige bastante os alunos. Muitas vezes tais comentários podem ser enviesados por uma experiência ruim, e o julgamento final do calouro é bastante subjetivo. Com o avalITA, o aluno que tiver em dúvida entre duas eletivas poderá fazer uma decisão mais precisa, embasada em critérios quantitativos além dos qualitativos já fornecidos pelos veteranos.
 
