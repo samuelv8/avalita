@@ -26,7 +26,7 @@ Um site em que alunos que já concluíram determinada matéria podem votar em cr
 ## Por quê? 
 
 ### Motivação
-Todo começo de semestre, na época de escolha de eletivas, os grupo de WhatsApp em que há mais de uma turma de alunos do ITA são lotados com perguntas do tipo "você conhece tal professor?" ou "tal disciplina é bizu?". Os alunos menos experientes buscam uma orientação com outros alunos veteranos em relação a qual disciplina escolher.
+Todo começo de semestre, na época de escolha de eletivas, os grupos de WhatsApp em que há mais de uma turma de alunos do ITA são lotados com perguntas do tipo "você conhece tal professor?" ou "tal disciplina é bizu?". Os alunos menos experientes buscam uma orientação com outros alunos veteranos em relação a qual disciplina escolher.
 
 Essa situação aflige bastante os alunos. Muitas vezes tais comentários podem ser enviesados por uma experiência ruim, e o julgamento final do calouro é bastante subjetivo. Com o avalITA, o aluno que tiver em dúvida entre duas eletivas poderá fazer uma decisão mais precisa, embasada em critérios quantitativos além dos qualitativos já fornecidos pelos veteranos.
 
