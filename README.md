@@ -21,7 +21,7 @@ Um site em que alunos que já concluíram determinada matéria podem votar em cr
 ### Extra
 - Fácil visualização das avaliações
 - Comparação entre as disciplinas
-- o avalITA pode vir a se tornar a plataforma oficial de votação do Prêmio Weiss no futuro
+- o avalITA pode vir a se tornar a plataforma oficial de votação do Prêmio Weis no futuro
 
 ## Por quê? 
 
