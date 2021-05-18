@@ -1,5 +1,5 @@
 """
-WSGI config for proj2 project.
+WSGI config for avalita project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -12,6 +12,6 @@ import os
 from django.core.wsgi import get_wsgi_application
 from dj_static import Cling
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'proj2.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'avalita.settings')
 
 application = Cling(get_wsgi_application())
