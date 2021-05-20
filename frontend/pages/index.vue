@@ -45,6 +45,12 @@
 
 <script>
 export default {
-  name: "index"
+  name: "index",
+  head() {
+    const title = "HomePage"
+    return {
+      title
+    }
+  },
 }
 </script>

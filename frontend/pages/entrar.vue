@@ -4,7 +4,13 @@
 
 <script>
 export default {
-  name: "entrar"
+  name: "entrar",
+  head() {
+    const title = "Entrar"
+    return {
+      title
+    }
+  },
 }
 </script>
 

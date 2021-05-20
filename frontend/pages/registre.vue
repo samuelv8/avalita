@@ -4,7 +4,13 @@
 
 <script>
 export default {
-  name: "registre"
+  name: "registre",
+  head() {
+    const title = "Registre"
+    return {
+      title
+    }
+  },
 }
 </script>
 
