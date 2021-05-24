@@ -6,8 +6,8 @@
           Seja bem-vindo, iteano!
         </v-card-title>
         <v-card-text>
-          <p>O objetivo da plataforma a seguir é compartilhar as experiências de quem já fez a eletiva com aqueles que
-            estão pensando em fazê-la.</p>
+          <p>O objetivo da plataforma a seguir é compartilhar as experiências de quem já fez uma determinada eletiva
+            com aqueles que estão pensando em fazê-la.</p>
           <p>Nessa plataforma, você pode:</p>
           <ul>
             <li>avaliar a cobrança da eletiva</li>
@@ -23,13 +23,15 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer/>
+          <!--botão de registrar-->
           <v-btn
             color="primary"
             nuxt
             to="/registre"
           >
-            Registre
+            Registrar
           </v-btn>
+          <!--botão de entrar-->
           <v-btn
             color="primary"
             nuxt
