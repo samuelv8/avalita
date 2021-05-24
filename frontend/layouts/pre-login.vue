@@ -10,8 +10,20 @@
         src="https://user-images.githubusercontent.com/24798860/119005862-3318d400-b966-11eb-865a-6c22fb983c7c.png"
       ></v-img>
       <v-spacer/>
-      <v-btn>Registrar</v-btn>
-      <v-btn>Login</v-btn>
+      <v-btn
+        color="primary"
+        nuxt
+        to="/registrar"
+      >
+        Registrar
+      </v-btn>
+      <v-btn
+        color="primary"
+        nuxt
+        to="/entrar"
+      >
+        Login
+      </v-btn>
     </v-app-bar>
     <v-spacer/>
     <v-main>

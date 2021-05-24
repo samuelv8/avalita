@@ -23,7 +23,7 @@
             <p>Pontualidade</p>
 
             <v-rating
-              align = "center"
+              align="center"
               :value="4.5"
               color="primary"
               dense
@@ -31,11 +31,11 @@
               readonly
               size="18"
             ></v-rating>
-            <div align = "center"  class="grey--text ms-4">4.5</div>
+            <div align="center" class="grey--text ms-4">4.5</div>
 
             <p>Coerência da cobrança</p>
             <v-rating
-              align = "center"
+              align="center"
               :value="3.5"
               color="primary"
               dense
@@ -43,11 +43,11 @@
               readonly
               size="18"
             ></v-rating>
-            <div align = "center"  class="grey--text ms-4">4.5</div>
+            <div align="center" class="grey--text ms-4">4.5</div>
 
             <p>Possibilidade de melação</p>
             <v-rating
-              align = "center"
+              align="center"
               :value="2.0"
               color="primary"
               dense
@@ -55,10 +55,7 @@
               readonly
               size="18"
             ></v-rating>
-            <div align = "center"  class="grey--text ms-4">4.5</div>
-          </v-card-text>
-        </v-card>
-      </v-col>
+            <div align="center" class="grey--text ms-4">4.5</div>
           </v-card-text>
         </v-card>
       </v-col>
