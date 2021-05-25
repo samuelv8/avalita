@@ -4,11 +4,21 @@
       app
       min-height="80"
     >
-      <v-img
-        max-height="200"
-        max-width="240"
-        src="https://user-images.githubusercontent.com/24798860/119005862-3318d400-b966-11eb-865a-6c22fb983c7c.png"
-      ></v-img>
+      <v-card
+        nuxt
+        to="/"
+        elevation="0"
+      >
+        <v-img
+          max-height="200"
+          max-width="240"
+          src="https://user-images.githubusercontent.com/24798860/119005862-3318d400-b966-11eb-865a-6c22fb983c7c.png"
+        ></v-img>
+      </v-card>
+      <v-spacer/>
+      <v-card-text>
+        Você tá logado!
+      </v-card-text>
     </v-app-bar>
     <v-spacer/>
     <v-main>
