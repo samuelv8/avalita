@@ -30,9 +30,6 @@
           </v-btn>
         </v-card>
       </v-col>
-      </v-card-text>
-      </v-card>
-      </v-col>
     </v-row>
   </v-container>
 </template>

@@ -1,85 +1,71 @@
 <template>
   <!--  size = 18-->
-  <v-container>
-    <v-card-title class="headline">
-      Área do aluno
-    </v-card-title>
-    <v-btn
-      color="primary"
-      nuxt
-      to="/avaliacao"
-    >
-      + adicione sua avaliação
-    </v-btn>
-    <v-row dense align="stretch">
-      <!--      1ºbloco-->
-      <v-col cols="4">
+  <v-container fluid>
+    <v-row>
+      <v-col align-self="start">
         <v-card>
-          <v-card-text class="primary--text">
-            <v-btn
-              color="primary"
-              text
-              @click="reserve"
-            >
-              CES 111 - PROFESSORA MARINA
-            </v-btn>
-            <v-rating
-              align = "center"
-              :value="4.5"
-              color="primary"
-              dense
-              half-increments
-              readonly
-              size="18"
-            ></v-rating>
-            <div align = "center"  class="grey--text ms-4">4.5</div>
+          <v-card-title class="headline">
+            Área do aluno
+          </v-card-title>
+          <v-card-text>
+            <v-row>
+              <v-col
+                order="first"
+                sm="1"
+              >
+                <v-flex>
+                  <v-avatar
+                    color="primary"
+                    size="56"
+                  >
+                    <span class="white--text text-h5">{{usr.firstLastNameInitials}}</span>
+                  </v-avatar>
+                </v-flex>
+              </v-col>
+              <v-col
+                order="last"
+                align-self="center"
+              >
+                <v-row>
+                  <span class="black--text text-h4">{{usr.name}}</span>
+                </v-row>
+                <v-row>
+                  <span class="black--text text-h5">{{usr.email}}</span>
+                </v-row>
+              </v-col>
+            </v-row>
+            <v-row align-content="center" justify="center">
+              <v-col align="center" v-for="(semester, i) in usr.semesters" :key="i">
+                <v-menu
+                  v-model="menu"
+                  :close-on-content-click="false"
+                  offset-y
+                >
+                  <template v-slot:activator="{ on, avals }">
+                    <v-btn
+                      color="cyan"
+                      v-bind="avals"
+                      v-on="on"
+                    >{{semester}}</v-btn>
+                  </template>
 
-            <v-btn
-              color="primary"
-              text
-              @click="reserve"
-            >
-              CES 000 - PROFESSORA MARINA
-            </v-btn>
-            <v-rating
-              align = "center"
-              :value="3.5"
-              color="primary"
-              dense
-              half-increments
-              readonly
-              size="18"
-            ></v-rating>
-            <div align = "center"  class="grey--text ms-4">4.5</div>
-
-            <v-btn
-              color="primary"
-              text
-              @click="reserve"
-            >
-              CES 555 - PROFESSORA MARINA
-            </v-btn>
-            <v-rating
-              align = "center"
-              :value="2.0"
-              color="primary"
-              dense
-              half-increments
-              readonly
-              size="18"
-            ></v-rating>
-            <div align = "center"  class="grey--text ms-4">4.5</div>
+                  <v-card>
+                    <lista-avaliacoes/>
+                  </v-card>
+                </v-menu>
+              </v-col>
+            </v-row>
           </v-card-text>
         </v-card>
       </v-col>
-      </v-card-text>
-      </v-card>
-      </v-col>
+
     </v-row>
   </v-container>
 </template>
 
 <script>
+import ListaAvaliacoes from "@/components/ListaAvaliacoes";
+
 export default {
   name: "area-aluno",
   head() {
@@ -90,9 +76,18 @@ export default {
   },
   data() {
     return {
-      variavel: 14
+      variavel: 14,
+      usr: {
+        name: "Gabriel Barbosa Martinz",
+        firstLastNameInitials: "GM",
+        email: "example@ga.ita.br",
+        semesters: ['2019.1', '2019.2', '2020.1', '2020.2', '2021.1', '2021.2', '2022.1', '2022.2', '2023.1', '2023.2'],
+      }
     }
   },
+  components: {
+    ListaAvaliacoes,
+  }
 }
 </script>
 
