@@ -1,37 +1,46 @@
 <template>
-  <v-form
-    ref="form"
-    v-model="valid"
-    lazy-validation
-  >
-    <v-text-field
-      v-model="email"
-      label="Email"
-      required
-    ></v-text-field>
+  <v-container fluid class="align-center">
+    <v-row align="center" justify="center">
+      <v-col
+        md="6"
+        align-self="center"
+      >
+        <v-form
+          ref="form"
+          v-model="valid"
+          lazy-validation
+        >
+          <v-text-field
+            v-model="email"
+            label="Email"
+            required
+          ></v-text-field>
 
-    <v-text-field
-      :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
-      :rules="[rules.required, rules.min]"
-      :type="show3 ? 'text' : 'password'"
-      name="input-10-2"
-      label="Senha"
-      hint="At least 8 characters"
-      v-model="password"
-      class="input-group--focused"
-      @click:append="show3 = !show3"
-    ></v-text-field>
+          <v-text-field
+            :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
+            :rules="[rules.required, rules.min]"
+            :type="show3 ? 'text' : 'password'"
+            name="input-10-2"
+            label="Senha"
+            hint="At least 8 characters"
+            v-model="password"
+            class="input-group--focused"
+            @click:append="show3 = !show3"
+          ></v-text-field>
 
-    <v-btn
-      nuxt
-      to="/departamentos"
-      color="primary"
-      class="mr-4"
-      @click="printar_email"
-    >
-      Entrar
-    </v-btn>
-  </v-form>
+          <v-btn
+            nuxt
+            to="/departamentos"
+            color="primary"
+            class="mr-4"
+            @click="printar_email"
+          >
+            Entrar
+          </v-btn>
+        </v-form>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>

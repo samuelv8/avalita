@@ -1,8 +1,12 @@
 <template>
   <!--  size = 18-->
-  <v-container fluid>
-    <v-row>
-      <v-col align-self="start">
+  <v-container fluid class="align-start">
+    <v-row align="start" justify="start">
+      <v-col
+        align-self="start"
+        md = "10"
+        offset-md="1"
+      >
         <v-card>
           <v-card-title class="headline">
             Área do aluno
@@ -35,7 +39,7 @@
               </v-col>
             </v-row>
             <v-row align-content="center" justify="center">
-              <v-col align="center" v-for="(semester, i) in usr.semesters" :key="i">
+              <v-col v-for="(semester, i) in usr.semesters" :key="i">
                 <v-menu
                   v-model="menu"
                   :close-on-content-click="false"

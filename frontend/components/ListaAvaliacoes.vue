@@ -19,7 +19,7 @@ export default {
   name: "ListaAvaliacoes",
   data () {
     return {
-      numAval: 3,
+      numAval: 5,
     }
   },
   components: {

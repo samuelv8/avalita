@@ -3,11 +3,14 @@
     <v-app-bar
       app
       min-height="80"
+      color="white"
     >
       <v-card
         nuxt
-        to="/"
-        elevation="0"
+        to="/departamentos"
+        flat
+        :ripple="true"
+        v-click-outside=""
       >
         <v-img
           max-height="200"
@@ -19,12 +22,23 @@
       <v-card-text>
         Você tá logado!
       </v-card-text>
+      <v-spacer/>
+      <v-card
+        nuxt
+        to="/area-aluno"
+        flat
+      >
+        <v-icon x-large>
+          mdi-account
+        </v-icon>
+      </v-card>
     </v-app-bar>
-    <v-spacer/>
     <v-main>
-      <v-container>
-        <Nuxt/>
-      </v-container>
+      <v-content>
+        <v-container fluid>
+          <Nuxt/>
+        </v-container>
+      </v-content>
     </v-main>
     <v-footer
       :absolute="!fixed"
@@ -36,6 +50,8 @@
 </template>
 
 <script>
+
+
 export default {
   data() {
     return {
