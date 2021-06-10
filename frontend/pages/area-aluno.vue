@@ -40,30 +40,47 @@
             </v-row>
             <v-row align-content="center" justify="center">
               <v-col v-for="(semester, i) in usr.semesters" :key="i">
-                <v-menu
-                  v-model="menu"
-                  :close-on-content-click="false"
-                  offset-y
-                >
-                  <template v-slot:activator="{ on, avals }">
-                    <v-btn
-                      color="cyan"
-                      v-bind="avals"
-                      v-on="on"
-                    >{{semester}}</v-btn>
-                  </template>
-
-                  <v-card>
-                    <lista-avaliacoes/>
-                  </v-card>
-                </v-menu>
+                <v-btn
+                  color="cyan"
+                  @click="show_avals=true"
+                >{{semester}}</v-btn>
               </v-col>
             </v-row>
           </v-card-text>
         </v-card>
       </v-col>
-
     </v-row>
+
+    <v-row align="start" justify="start">
+      <v-col
+        align-self="start"
+        md="10"
+        offset-md="1"
+      >
+        <v-card
+          v-if="show_avals"
+        >
+          <v-card-actions>
+            <v-btn
+              color="primary"
+              nuxt
+              to="/avaliacao"
+            >
+              + Adicione sua avaliação
+            </v-btn>
+            <v-spacer></v-spacer>
+            <v-btn
+              color="red"
+              @click="show_avals=false"
+            >
+              Fechar
+            </v-btn>
+          </v-card-actions>
+          <lista-avaliacoes/>
+        </v-card>
+      </v-col>
+    </v-row>
+
   </v-container>
 </template>
 
@@ -80,7 +97,7 @@ export default {
   },
   data() {
     return {
-      variavel: 14,
+      show_avals: false,
       usr: {
         name: "Gabriel Barbosa Martinz",
         firstLastNameInitials: "GM",

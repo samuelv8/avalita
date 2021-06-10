@@ -1,15 +1,8 @@
 <template>
   <v-container fluid>
 
-    <v-btn
-      color="primary"
-      nuxt
-      to="/avaliacao"
-    >
-      + adicione sua avaliação
-    </v-btn>
-
     <AvaliacaoIndividual v-for="aval in numAval" :key="aval"></AvaliacaoIndividual>
+
   </v-container>
 </template>
 
