@@ -8,12 +8,12 @@
             text
             @click="reserve"
           >
-            {{subject.code}} - {{subject.professor}}
+            {{aval['subj_name']}} - {{aval['professor']}}
           </v-btn>
         </v-row>
         <v-row align="center" justify="center">
           <v-rating
-            :value="subject.grade"
+            :value="aval.grade"
             color="primary"
             dense
             half-increments
@@ -21,7 +21,7 @@
             size="18"
           ></v-rating>
         </v-row>
-        <v-row align="center" justify="center">{{subject.grade}}</v-row>
+        <v-row align="center" justify="center">{{aval['grade']}}</v-row>
       </v-card-text>
     </v-card>
   </v-container>
@@ -30,6 +30,13 @@
 <script>
 export default {
   name: "AvaliacaoIndividual",
+  props: {
+    aval: {
+      'subj_name': String,
+      'professor': String,
+      'grade': Number,
+    },
+  },
   data() {
     return {
       subject: {

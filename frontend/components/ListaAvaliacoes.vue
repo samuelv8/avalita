@@ -1,7 +1,10 @@
 <template>
   <v-container fluid>
 
-    <AvaliacaoIndividual v-for="aval in numAval" :key="aval"></AvaliacaoIndividual>
+    <AvaliacaoIndividual
+      v-for="(aval, i) in avals" :key="i"
+      v-bind:aval="aval"
+    ></AvaliacaoIndividual>
 
   </v-container>
 </template>
@@ -10,6 +13,9 @@
 import AvaliacaoIndividual from "@/components/AvaliacaoIndividual";
 export default {
   name: "ListaAvaliacoes",
+  props: {
+    avals: Array,
+  },
   data () {
     return {
       numAval: 5,

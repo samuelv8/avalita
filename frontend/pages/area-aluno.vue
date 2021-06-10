@@ -42,7 +42,7 @@
               <v-col v-for="(semester, i) in usr.semesters" :key="i">
                 <v-btn
                   color="cyan"
-                  @click="show_avals=true"
+                  @click="show_semester_avals(semester)"
                 >{{semester}}</v-btn>
               </v-col>
             </v-row>
@@ -76,7 +76,10 @@
               Fechar
             </v-btn>
           </v-card-actions>
-          <lista-avaliacoes/>
+          <lista-avaliacoes
+            v-if="semester_show in avals"
+            v-bind:avals="avals[semester_show]"
+          ></lista-avaliacoes>
         </v-card>
       </v-col>
     </v-row>
@@ -97,17 +100,31 @@ export default {
   },
   data() {
     return {
+      semester_show: String,
       show_avals: false,
       usr: {
         name: "Gabriel Barbosa Martinz",
         firstLastNameInitials: "GM",
         email: "example@ga.ita.br",
         semesters: ['2019.1', '2019.2', '2020.1', '2020.2', '2021.1', '2021.2', '2022.1', '2022.2', '2023.1', '2023.2'],
+      },
+      avals: {
+        '2021.1': [
+          {'subj_name': "CES-22", 'professor': "Karla", 'grade': 4},
+          {'subj_name': "CES-12", 'professor': "Alonso", 'grade': 4},
+          {'subj_name': "CMC-12", 'professor': "Marcos Máximo", 'grade': 4.5}
+        ],
       }
     }
   },
   components: {
     ListaAvaliacoes,
+  },
+  methods: {
+    show_semester_avals(semester) {
+      this.show_avals = true
+      this.semester_show = semester
+    }
   }
 }
 </script>
