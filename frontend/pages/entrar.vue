@@ -45,6 +45,14 @@
 
 <script>
 export default {
+  name: "index",
+  layout: 'pre-login',
+  head() {
+    const title = "HomePage"
+    return {
+      title
+    }
+  },
 
   data: () => ({
     email: '',

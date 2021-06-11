@@ -3,13 +3,16 @@
     <v-card>
       <v-card-text class="primary--text">
         <v-row align="center" justify="center">
-          <v-btn
-            color="primary"
-            text
-            @click="reserve"
-          >
+<!--          <v-btn-->
+<!--            color="primary"-->
+<!--            text-->
+<!--            @click="reserve"-->
+<!--          >-->
+<!--            {{aval['subj_name']}} - {{aval['professor']}}-->
+<!--          </v-btn>-->
+          <v-card-text>
             {{aval['subj_name']}} - {{aval['professor']}}
-          </v-btn>
+          </v-card-text>
         </v-row>
         <v-row align="center" justify="center">
           <v-rating

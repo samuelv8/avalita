@@ -20,7 +20,7 @@
       </v-card>
       <v-spacer/>
       <v-card-text>
-        Você tá logado!
+        Você está logado!
       </v-card-text>
       <v-spacer/>
       <v-card

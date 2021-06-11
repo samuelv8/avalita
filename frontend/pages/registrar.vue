@@ -8,7 +8,7 @@
       v-model="name"
       :counter="10"
       :rules="nameRules"
-      label="Name"
+      label="Nome"
       required
     ></v-text-field>
 
@@ -30,38 +30,48 @@
     <v-checkbox
       v-model="checkbox"
       :rules="[v => !!v || 'You must agree to continue!']"
-      label="Do you agree?"
+      label="Você concorda?"
       required
     ></v-checkbox>
 
     <v-btn
       :disabled="!valid"
-      color="success"
+      color="primary"
       class="mr-4"
       @click="validate"
     >
-      Validate
+      Registrar
     </v-btn>
 
     <v-btn
-      color="error"
+      color="primary"
       class="mr-4"
       @click="reset"
     >
-      Reset Form
+      Limpar
     </v-btn>
 
     <v-btn
-      color="warning"
+      color="primary"
       @click="resetValidation"
     >
-      Reset Validation
+      Cancelar
     </v-btn>
   </v-form>
 </template>
 
 <script>
+
 export default {
+  name: "index",
+  layout: 'pre-login',
+  head() {
+    const title = "HomePage"
+    return {
+      title
+    }
+  },
+
   data: () => ({
     valid: true,
     name: '',

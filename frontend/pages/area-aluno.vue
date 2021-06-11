@@ -41,12 +41,21 @@
             <v-row align-content="center" justify="center">
               <v-col v-for="(semester, i) in usr.semesters" :key="i">
                 <v-btn
-                  color="cyan"
+                  color="primary"
                   @click="show_semester_avals(semester)"
                 >{{semester}}</v-btn>
+                </v-btn>
+                <v-spacer></v-spacer>
               </v-col>
             </v-row>
           </v-card-text>
+          <v-btn block
+            elevation = "10"
+            color="grey darken-1"
+            @click="show_avals=false"
+          >
+            Sair
+          </v-btn>
         </v-card>
       </v-col>
     </v-row>

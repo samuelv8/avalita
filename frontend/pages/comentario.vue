@@ -18,8 +18,8 @@
 
             <v-spacer></v-spacer>
 
-            <p>Professor:<v-text-field outlined v-model="professor_name" placeholder="Professor"></v-text-field></p>
-            <p>Disciplina:<v-text-field outlined v-model="professor_subject" placeholder="Disciplina"></v-text-field></p>
+<!--            <p>Professor:<v-text-field outlined v-model="professor_name" placeholder="Professor"></v-text-field></p>-->
+<!--            <p>Disciplina:<v-text-field outlined v-model="professor_subject" placeholder="Disciplina"></v-text-field></p>-->
 
             <p>Comentário:<v-text-field outlined v-model="message" placeholder="Deixe seu comentário sobre a eletiva"></v-text-field></p>
           </v-card-text>
