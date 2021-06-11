@@ -14,17 +14,53 @@
             {{aval['subj_name']}} - {{aval['professor']}}
           </v-card-text>
         </v-row>
-        <v-row align="center" justify="center">
-          <v-rating
-            :value="aval.grade"
-            color="primary"
-            dense
-            half-increments
-            readonly
-            size="18"
-          ></v-rating>
+        <v-row>
+          <v-col
+            md="3"
+          >
+            <v-rating
+              v-model="aval['pontualidade']"
+              color="primary"
+              background-color="primary"
+              readonly
+            ></v-rating>
+            <div>
+              <span>Pontualidade:</span>
+              <span>{{aval['pontualidade']}}</span>
+            </div>
+          </v-col>
+          <v-spacer/>
+          <v-col
+            md="3"
+          >
+            <v-rating
+              v-model="aval['coerencia']"
+              color="primary"
+              background-color="primary"
+              readonly
+            ></v-rating>
+            <div>
+              <span>Coerência da correção:</span>
+              <span>{{aval['coerencia']}}</span>
+            </div>
+          </v-col>
+          <v-spacer/>
+          <v-col
+            md="3"
+          >
+            <v-rating
+              v-model="aval['melacao']"
+              color="primary"
+              background-color="primary"
+              readonly
+            ></v-rating>
+            <div>
+              <span>Possibilidade de melação:</span>
+              <span>{{aval['melacao']}}</span>
+            </div>
+          </v-col>
+          <v-spacer/>
         </v-row>
-        <v-row align="center" justify="center">{{aval['grade']}}</v-row>
       </v-card-text>
     </v-card>
   </v-container>
@@ -37,7 +73,9 @@ export default {
     aval: {
       'subj_name': String,
       'professor': String,
-      'grade': Number,
+      'pontualidade': Number,
+      'coerencia': Number,
+      'melacao': Number
     },
   },
   data() {

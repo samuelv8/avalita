@@ -144,9 +144,9 @@ export default {
       },
       avals: {
         '2021.1': [
-          {'subj_name': "CES-22", 'professor': "Karla", 'grade': 4},
-          {'subj_name': "CES-12", 'professor': "Alonso", 'grade': 4},
-          {'subj_name': "CMC-12", 'professor': "Marcos Máximo", 'grade': 4.5}
+          {'subj_name': "CES-22", 'professor': "Karla", 'pontualidade': 4, 'coerencia': 3, 'melacao': 4},
+          {'subj_name': "CES-12", 'professor': "Alonso", 'pontualidade': 4, 'coerencia': 3, 'melacao': 2},
+          {'subj_name': "CMC-12", 'professor': "Marcos Máximo", 'pontualidade': 4, 'coerencia': 4, 'melacao': 5}
         ],
       }
     }
