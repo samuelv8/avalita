@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-card>
+
       <v-card-title>
         Avaliação
       </v-card-title>
@@ -33,43 +33,47 @@
 
       <v-row>
         <v-col
-          md="4"
+          md="3"
         >
           <v-rating
             v-model="aval.pontualidade"
-            large
+            color="primary"
+            background-color="primary"
           ></v-rating>
           <div>
             <span>Pontualidade:</span>
             <span>{{aval.pontualidade}}</span>
           </div>
         </v-col>
-
+        <v-spacer/>
         <v-col
-          md="4"
+          md="3"
         >
           <v-rating
             v-model="aval.coerencia"
-            large
+            color="primary"
+            background-color="primary"
           ></v-rating>
           <div>
             <span>Coerência da correção:</span>
             <span>{{aval.coerencia}}</span>
           </div>
         </v-col>
-
+        <v-spacer/>
         <v-col
-          md="4"
+          md="3"
         >
           <v-rating
             v-model="aval.melacao"
-            large
+            color="primary"
+            background-color="primary"
           ></v-rating>
           <div>
             <span>Possibilidade de melação:</span>
             <span>{{aval.melacao}}</span>
           </div>
         </v-col>
+        <v-spacer/>
       </v-row>
 
       <v-row>
@@ -77,16 +81,15 @@
           md="6"
           offset-md="3"
         >
-          <p>Comentário:
-            <v-text-field
-              outlined
-              v-model="aval.comment"
-              label="Deixe seu comentário sobre a matéria"
-            ></v-text-field>
-          </p>
+          <p>Comentário:</p>
+          <v-text-field
+            outlined
+            v-model="aval.comment"
+            label="Deixe seu comentário sobre a matéria"
+          ></v-text-field>
         </v-col>
       </v-row>
-    </v-card>
+
   </v-container>
 </template>
 

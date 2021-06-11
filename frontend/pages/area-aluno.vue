@@ -44,7 +44,6 @@
                   color="primary"
                   @click="show_semester_avals(semester)"
                 >{{semester}}</v-btn>
-                </v-btn>
                 <v-spacer></v-spacer>
               </v-col>
             </v-row>
@@ -72,8 +71,7 @@
           <v-card-actions>
             <v-btn
               color="primary"
-              nuxt
-              to="/avaliacao"
+              @click="overlay = !overlay"
             >
               + Adicione sua avaliação
             </v-btn>
@@ -93,11 +91,37 @@
       </v-col>
     </v-row>
 
+    <v-overlay
+      :value="overlay"
+      :dark="false"
+    >
+      <v-card>
+        <adicionar-avaliacao/>
+        <v-card-actions>
+          <v-btn
+            color="primary"
+            @click="overlay = !overlay"
+          >
+            Adicionar avaliação
+          </v-btn>
+          <v-spacer/>
+          <v-btn
+            color="red"
+            @click="overlay = !overlay"
+          >
+            Cancelar
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-overlay>
+
+
   </v-container>
 </template>
 
 <script>
 import ListaAvaliacoes from "@/components/ListaAvaliacoes";
+import AdicionarAvaliacao from "@/components/AdicionarAvaliacao";
 
 export default {
   name: "area-aluno",
@@ -109,6 +133,7 @@ export default {
   },
   data() {
     return {
+      overlay: false,
       semester_show: String,
       show_avals: false,
       usr: {
@@ -128,6 +153,7 @@ export default {
   },
   components: {
     ListaAvaliacoes,
+    AdicionarAvaliacao
   },
   methods: {
     show_semester_avals(semester) {
