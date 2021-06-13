@@ -5,9 +5,21 @@
         <h2 class="is-size-2 has-text-centered">{{ departamento.name }}</h2>
       </div>
 
-      <p v-for="disciplina in departamento.disciplinas" :key="disciplina.id">
-        {{ disciplina }}
-      </p>
+      <ul v-if="departamento.hasOwnProperty('disciplinas') && departamento.disciplinas.length">
+        <li v-for="disciplina in departamento.disciplinas" :key="disciplina.id">
+          <router-link :to="disciplina.get_absolute_url">
+            <strong>
+              {{
+                get_disciplina_slug_from_url(
+                  disciplina.get_absolute_url
+                ).toUpperCase()
+              }}
+            </strong>
+            - {{ disciplina.name }}
+          </router-link>
+        </li>
+      </ul>
+      <p v-else>Não há disciplinas desse departamento.</p>
     </div>
   </div>
 </template>
@@ -46,6 +58,11 @@ export default {
         });
 
       this.$store.commit("setIsLoading", false);
+    },
+    get_disciplina_slug_from_url(url) {
+      const arr = url.split("/");
+      const slug = arr[arr.length - 1];
+      return slug;
     },
   },
 };
