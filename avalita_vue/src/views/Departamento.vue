@@ -4,8 +4,12 @@
       <div class="column is-12">
         <h2 class="is-size-2 has-text-centered">{{ departamento.name }}</h2>
       </div>
-
-      <ul v-if="departamento.disciplinas.length">
+      <ul
+        v-if="
+          departamento.hasOwnProperty('disciplinas') &&
+          departamento.disciplinas.length
+        "
+      >
         <li v-for="disciplina in departamento.disciplinas" :key="disciplina.id">
           <router-link :to="disciplina.get_absolute_url">
             <strong>
