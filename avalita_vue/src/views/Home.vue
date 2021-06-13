@@ -2,7 +2,7 @@
   <div class="home">
     <section class="hero is-medium is-dark mb-6">
       <div class="hero-body has-text-centered">
-        <p class="title mb-6">Bem-vindo ao Avalita</p>
+        <p class="title mb-6">Bem-vindo(a) ao Avalita</p>
         <p class="subtitle">Eletivas avaliadas por iteanos</p>
       </div>
     </section>
