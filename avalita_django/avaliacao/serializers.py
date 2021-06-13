@@ -10,6 +10,4 @@ class DisciplinaSerializer(serializers.ModelSerializer):
             "id",
             "name",
             "get_absolute_url",
-            "get_image",
-            "thumbnail",
         )
