@@ -1,9 +1,9 @@
-from avalita_django.avaliacao.serializers import DisciplinaSerializer
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
 from .models import Disciplina
+from .serializers import DisciplinaSerializer
 
 
 class LatestDisciplinasList(APIView):

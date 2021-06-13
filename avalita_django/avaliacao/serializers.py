@@ -1,10 +1,9 @@
-from django.db import models
 from rest_framework import serializers
 
-from .models import Departamento, Disciplina
+from .models import Disciplina
 
 
-class DisciplinaSerializer:
+class DisciplinaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Disciplina
         fields = (
