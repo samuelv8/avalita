@@ -1,4 +1,4 @@
-
+from django.http.response import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
@@ -44,4 +44,17 @@ class BestMedias(APIView):
             } for (k, v) in notas.items())
         medias.sort(key=lambda x: x['nota'], reverse=True)
         serializer = MediaSerializer(medias, many=True)
+        return Response(serializer.data)
+
+
+class DepartamentoDetail(APIView):
+    def get_object(self, departamento_slug):
+        try:
+            return Departamento.objects.get(slug=departamento_slug)
+        except Departamento.DoesNotExist:
+            raise Http404
+
+    def get(self, request, departamento_slug, format=None):
+        departamento = self.get_object(departamento_slug)
+        serializer = DepartamentoSerializer(departamento)
         return Response(serializer.data)

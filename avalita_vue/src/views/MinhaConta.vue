@@ -24,7 +24,7 @@ export default {
     return {};
   },
   mounted() {
-    document.title = "My account | Djackets";
+    document.title = "Minha Conta | Avalita";
   },
   methods: {
     sair() {
