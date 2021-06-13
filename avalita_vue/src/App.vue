@@ -40,25 +40,27 @@
           <div class="navbar-item">
             <div class="buttons">
               <template v-if="$store.state.isAuthenticated">
-                <router-link to="/minha-conta" class="button is-light"
-                  >Minha Conta</router-link
-                >
+                <router-link to="/aluno" class="button is-success">
+                  <span class="icon"
+                    ><i class="fas fa-graduation-cap"></i
+                  ></span>
+
+                  <span>Área do Aluno</span>
+                </router-link>
+
+                <div>
+                  <button @click="sair()" class="button is-danger">Sair</button>
+                </div>
               </template>
 
               <template v-else>
-                <router-link to="/login" class="button is-light"
-                  >Login</router-link
-                >
                 <router-link to="/cadastro" class="button is-light"
                   >Cadastre-se</router-link
                 >
+                <router-link to="/login" class="button is-light"
+                  >Login</router-link
+                >
               </template>
-
-              <router-link to="/aluno" class="button is-success">
-                <span class="icon"><i class="fas fa-graduation-cap"></i></span>
-
-                <span>Área do Aluno</span>
-              </router-link>
             </div>
           </div>
         </div>
@@ -119,6 +121,14 @@ export default {
     },
     get_slug_from_url(url) {
       return url.substring(6, url.length - 1);
+    },
+    sair() {
+      axios.defaults.headers.common["Authorization"] = "";
+      localStorage.removeItem("token");
+      localStorage.removeItem("username");
+      localStorage.removeItem("userid");
+      this.$store.commit("removeToken");
+      this.$router.push("/");
     },
   },
 };

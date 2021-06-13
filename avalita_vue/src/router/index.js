@@ -5,7 +5,7 @@ import Home from '../views/Home.vue'
 import Departamento from '../views/Departamento.vue'
 import Cadastro from '../views/Cadastro.vue'
 import Login from '../views/Login.vue'
-import MinhaConta from '../views/MinhaConta.vue'
+import AreaAluno from '../views/AreaAluno.vue'
 
 const routes = [
   {
@@ -24,9 +24,9 @@ const routes = [
     component: Login
   },
   {
-    path: '/minha-conta',
-    name: 'MinhaConta',
-    component: MinhaConta
+    path: '/aluno',
+    name: 'AreaAluno',
+    component: AreaAluno
   },
   {
     path: '/about',

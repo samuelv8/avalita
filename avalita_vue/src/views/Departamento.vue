@@ -43,6 +43,7 @@ export default {
   watch: {
     $route(to, from) {
       if (to.name === "Departamento") {
+        this.departamento = {};
         this.getDepartamento();
       }
     },
