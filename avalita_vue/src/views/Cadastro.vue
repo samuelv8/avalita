@@ -1,8 +1,8 @@
 <template>
-  <div class="page-sign-up">
+  <div class="page-cadastro">
     <div class="columns">
       <div class="column is-4 is-offset-4">
-        <h1 class="title">Sign up</h1>
+        <h1 class="title">Criar conta</h1>
 
         <form @submit.prevent="submitForm">
           <div class="field">
@@ -38,7 +38,8 @@
 
           <hr />
 
-          Or <router-link to="/log-in">click here</router-link> to log in!
+          Ou <router-link to="/login">clique aqui</router-link> para fazer
+          login!
         </form>
       </div>
     </div>
@@ -59,7 +60,7 @@ export default {
     };
   },
   mounted() {
-    document.title = "Sign up | Avalita";
+    document.title = "Criar Conta | Avalita";
   },
   methods: {
     submitForm() {

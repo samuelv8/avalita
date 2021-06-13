@@ -1,8 +1,8 @@
 <template>
-  <div class="page-log-in">
+  <div class="page-login">
     <div class="columns">
       <div class="column is-4 is-offset-4">
-        <h1 class="title">Log in</h1>
+        <h1 class="title">Login</h1>
 
         <form @submit.prevent="submitForm">
           <div class="field">
@@ -25,13 +25,14 @@
 
           <div class="field">
             <div class="control">
-              <button class="button is-dark">Log in</button>
+              <button class="button is-dark">Login</button>
             </div>
           </div>
 
           <hr />
 
-          Or <router-link to="/sign-up">click here</router-link> to sign up!
+          Ou <router-link to="/cadastro">clique aqui</router-link> para se
+          cadastrar!
         </form>
       </div>
     </div>
@@ -50,7 +51,7 @@ export default {
     };
   },
   mounted() {
-    document.title = "Log In | Avalita";
+    document.title = "Login | Avalita";
   },
   methods: {
     async submitForm() {

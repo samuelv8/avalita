@@ -1,13 +1,13 @@
 
 <template>
-  <div class="page-my-account">
+  <div class="page-minha-conta">
     <div class="columns is-multiline">
       <div class="column is-12">
-        <h1 class="title">My account</h1>
+        <h1 class="title">Minha Conta</h1>
       </div>
 
       <div class="column is-12">
-        <button @click="logout()" class="button is-danger">Log out</button>
+        <button @click="sair()" class="button is-danger">Sair</button>
       </div>
 
       <hr />
@@ -27,7 +27,7 @@ export default {
     document.title = "My account | Djackets";
   },
   methods: {
-    logout() {
+    sair() {
       axios.defaults.headers.common["Authorization"] = "";
       localStorage.removeItem("token");
       localStorage.removeItem("username");
