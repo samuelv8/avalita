@@ -26,7 +26,6 @@
         id="navbar-menu"
         v-bind:class="{ 'is-active': showMobileMenu }"
       >
-        >
         <div class="navbar-end">
           <router-link to="/dpto/fund" class="navbar-item">FUND</router-link>
           <router-link to="/dpto/aer" class="navbar-item">AER</router-link>
