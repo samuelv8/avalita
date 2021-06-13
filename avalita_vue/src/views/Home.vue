@@ -35,6 +35,12 @@
 <script>
 export default {
   name: "Home",
+  data() {
+    return {};
+  },
+  mounted() {
+    document.title = "Home | Avalita";
+  },
   components: {},
 };
 </script>

@@ -58,6 +58,9 @@ export default {
       errors: [],
     };
   },
+  mounted() {
+    document.title = "Sign up | Avalita";
+  },
   methods: {
     submitForm() {
       this.errors = [];
