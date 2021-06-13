@@ -57,12 +57,11 @@ class Avaliacao(models.Model):
         Disciplina, related_name='avaliacoes', on_delete=models.CASCADE)
     professor = models.ForeignKey(
         Professor, related_name='avaliacoes', on_delete=models.CASCADE)
-    nota = models.DecimalField(
-        max_digits=2, decimal_places=1,
-        default=1.0,
+    nota = models.IntegerField(
+        default=1,
         validators=[
-            MaxValueValidator(5.0),
-            MinValueValidator(1.0)
+            MaxValueValidator(5),
+            MinValueValidator(1)
         ])
     date_added = models.DateTimeField(auto_now_add=True)
 

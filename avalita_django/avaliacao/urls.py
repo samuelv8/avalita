@@ -4,5 +4,6 @@ from avaliacao import views
 
 
 urlpatterns = [
-    path('latest-disciplinas/', views.LatestDisciplinasList.as_view())
+    path('latest-disciplinas/', views.LatestDisciplinasList.as_view()),
+    path('all-avaliacoes/', views.AllAvaliacoes.as_view()),
 ]

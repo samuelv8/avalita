@@ -25,6 +25,9 @@ class ProfessorSerializer(serializers.ModelSerializer):
 
 
 class AvaliacaoSerializer(serializers.ModelSerializer):
+    professor = ProfessorSerializer()
+    disciplina = DisciplinaSerializer()
+
     class Meta:
         model = Avaliacao
         fields = (
