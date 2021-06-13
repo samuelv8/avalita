@@ -70,6 +70,3 @@ class Avaliacao(models.Model):
 
     def __str__(self):
         return str(self.pk) + ' ' + str(self.disciplina)
-
-    def get_absolute_url(self):
-        return f'/dpto/{self.departamento.slug}/{self.slug}'

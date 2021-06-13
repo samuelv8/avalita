@@ -2,8 +2,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-from .models import Avaliacao, Departamento, Disciplina
-from .serializers import AvaliacaoSerializer, DepartamentoSerializer, DisciplinaSerializer
+from .models import Avaliacao, Departamento, Disciplina, Professor
+from .serializers import AvaliacaoSerializer, DepartamentoSerializer, DisciplinaSerializer, MediaSerializer
 
 
 class LatestDisciplinasList(APIView):
@@ -24,4 +24,24 @@ class AllAvaliacoes(APIView):
     def get(self, request, format=None):
         avaliacoes = Avaliacao.objects.all()
         serializer = AvaliacaoSerializer(avaliacoes, many=True)
+        return Response(serializer.data)
+
+
+class BestMedias(APIView):
+    def get(self, request, format=None):
+        avaliacoes = Avaliacao.objects.all()
+        notas = dict()
+        for avaliacao in avaliacoes:
+            key = (avaliacao.disciplina, avaliacao.professor)
+            nota = avaliacao.nota
+            notas.setdefault(key, []).append(nota)
+        medias = list(
+            {
+                'disciplina': k[0],
+                'professor': k[1],
+                'nota': round(sum(v)/len(v), 2),
+                'count': len(v),
+            } for (k, v) in notas.items())
+        medias.sort(key=lambda x: x['nota'], reverse=True)
+        serializer = MediaSerializer(medias, many=True)
         return Response(serializer.data)

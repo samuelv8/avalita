@@ -50,3 +50,18 @@ class AvaliacaoSerializer(serializers.ModelSerializer):
             "professor",
             "nota",
         )
+
+
+class MediaSerializer(serializers.Serializer):
+    nota = serializers.DecimalField(max_digits=3, decimal_places=2)
+    count = serializers.IntegerField()
+    disciplina = DisciplinaSerializer()
+    professor = ProfessorSerializer()
+
+    class Meta:
+        fields = (
+            "nota",
+            "count",
+            "disciplina",
+            "professor",
+        )
