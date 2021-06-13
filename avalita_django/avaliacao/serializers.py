@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Avaliacao, Disciplina, Professor
+from .models import Avaliacao, Departamento, Disciplina, Professor
 
 
 class DisciplinaSerializer(serializers.ModelSerializer):
@@ -9,6 +9,19 @@ class DisciplinaSerializer(serializers.ModelSerializer):
         fields = (
             "id",
             "name",
+            "get_absolute_url",
+        )
+
+
+class DepartamentoSerializer(serializers.ModelSerializer):
+    disciplinas = DisciplinaSerializer(many=True)
+
+    class Meta:
+        model = Departamento
+        fields = (
+            "id",
+            "name",
+            "disciplinas",
             "get_absolute_url",
         )
 

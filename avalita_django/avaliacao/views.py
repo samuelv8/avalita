@@ -2,14 +2,21 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-from .models import Avaliacao, Disciplina
-from .serializers import AvaliacaoSerializer, DisciplinaSerializer
+from .models import Avaliacao, Departamento, Disciplina
+from .serializers import AvaliacaoSerializer, DepartamentoSerializer, DisciplinaSerializer
 
 
 class LatestDisciplinasList(APIView):
     def get(self, request, format=None):
         disciplinas = Disciplina.objects.all()[0:4]
         serializer = DisciplinaSerializer(disciplinas, many=True)
+        return Response(serializer.data)
+
+
+class AllDepartamentos(APIView):
+    def get(self, request, format=None):
+        departamentos = Departamento.objects.all().order_by('slug')
+        serializer = DepartamentoSerializer(departamentos, many=True)
         return Response(serializer.data)
 
 

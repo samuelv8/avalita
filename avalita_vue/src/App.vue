@@ -27,13 +27,15 @@
         v-bind:class="{ 'is-active': showMobileMenu }"
       >
         <div class="navbar-end">
-          <router-link to="/dpto/fund" class="navbar-item">FUND</router-link>
-          <router-link to="/dpto/aer" class="navbar-item">AER</router-link>
-          <router-link to="/dpto/ele" class="navbar-item">ELE</router-link>
-          <router-link to="/dpto/mec" class="navbar-item">MEC</router-link>
-          <router-link to="/dpto/civil" class="navbar-item">CIVIL</router-link>
-          <router-link to="/dpto/comp" class="navbar-item">COMP</router-link>
-          <router-link to="/dpto/aesp" class="navbar-item">AESP</router-link>
+          <router-link
+            v-for="dpto in departamentos"
+            :key="dpto.id"
+            :to="dpto.get_absolute_url"
+            class="navbar-item"
+            >{{
+              get_slug_from_url(dpto.get_absolute_url).toUpperCase()
+            }}</router-link
+          >
 
           <div class="navbar-item">
             <div class="buttons">
@@ -63,11 +65,34 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
       showMobileMenu: false,
+      departamentos: [],
     };
+  },
+  mounted() {
+    this.getAllDepartamentos();
+  },
+  methods: {
+    async getAllDepartamentos() {
+      this.$store.commit("setIsLoading", true);
+      await axios
+        .get("/api/v1/all-departamentos/")
+        .then((response) => {
+          this.departamentos = response.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      this.$store.commit("setIsLoading", false);
+    },
+    get_slug_from_url(url) {
+      return url.substring(6, url.length - 1);
+    },
   },
 };
 </script>
