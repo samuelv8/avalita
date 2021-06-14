@@ -24,6 +24,7 @@ pip install -r req.txt
 Para rodar o backend, em um novo terminal cuja raiz é a pasta Avalita:
 ```
 cd avalita_django
+python manage.py migrate
 python manage.py runserver
 ```
 
