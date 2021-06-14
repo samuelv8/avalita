@@ -14,6 +14,13 @@ npm install
 npm run serve
 ```
 
+Instalar dependências do backend, supondo que a pasta atual é Avalita:
+```
+python -m venv env
+source env/bin/activate
+pip install -r req.txt
+```
+
 Para rodar o backend, em um novo terminal cuja raiz é a pasta Avalita:
 ```
 cd avalita_django
