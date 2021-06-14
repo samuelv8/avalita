@@ -8,5 +8,10 @@ urlpatterns = [
     path('best-medias/', views.BestMedias.as_view()),
     path('all-avaliacoes/', views.AllAvaliacoes.as_view()),
     path('all-departamentos/', views.AllDepartamentos.as_view()),
+    path('best-medias/<slug:departamento_slug>/<slug:disciplina_slug>/', views.BestMediasDepartamento.as_view()),
     path('dpto/<slug:departamento_slug>/', views.DepartamentoDetail.as_view()),
+    path('dpto/<slug:departamento_slug>/<slug:disciplina_slug>/',
+         views.DisciplinaDetail.as_view()),
+    path('dpto/<slug:departamento_slug>/<slug:disciplina_slug>/p/',
+         views.ProfessoresDisciplina.as_view()),
 ]

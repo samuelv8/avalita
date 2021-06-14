@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 
 import Departamento from '../views/Departamento.vue'
+import Disciplina from '../views/Disciplina.vue'
 import Cadastro from '../views/Cadastro.vue'
 import Login from '../views/Login.vue'
 import AreaAluno from '../views/AreaAluno.vue'
@@ -40,6 +41,11 @@ const routes = [
     path: '/dpto/:departamento_slug',
     name: 'Departamento',
     component: Departamento
+  },
+  {
+    path: '/dpto/:departamento_slug/:disciplina_slug',
+    name: 'Disciplina',
+    component: Disciplina
   },
 ]
 
