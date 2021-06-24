@@ -1,8 +1,8 @@
 from django.contrib.auth.models import User
+
 from django.db import models
 
 from django.core.validators import MaxValueValidator, MinValueValidator
-
 
 class Departamento(models.Model):
     name = models.CharField(max_length=80)
@@ -52,7 +52,8 @@ class Professor(models.Model):
 class Avaliacao(models.Model):
     user = models.ForeignKey(
         User, related_name='avaliacoes', on_delete=models.CASCADE)
-    semestre = models.CharField(max_length=6)
+    semestre_ita = models.IntegerField()
+    semestre_cronologico = models.CharField(max_length=6)
     disciplina = models.ForeignKey(
         Disciplina, related_name='avaliacoes', on_delete=models.CASCADE)
     professor = models.ForeignKey(

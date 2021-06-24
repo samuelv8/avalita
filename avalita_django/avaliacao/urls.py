@@ -14,4 +14,6 @@ urlpatterns = [
          views.DisciplinaDetail.as_view()),
     path('dpto/<slug:departamento_slug>/<slug:disciplina_slug>/p/',
          views.ProfessoresDisciplina.as_view()),
+    path('my-semesters/', views.MySemesters.as_view()),
+    path('submit-avaliacao/', views.SubmitAvaliacao.as_view()),
 ]

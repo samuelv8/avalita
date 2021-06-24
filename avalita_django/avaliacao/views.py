@@ -1,4 +1,5 @@
 from django.http.response import Http404
+from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
@@ -108,3 +109,32 @@ class ProfessoresDisciplina(APIView):
             map(lambda a: a.professor, disciplina.avaliacoes.all()))
         serializer = ProfessorSerializer(professores, many=True)
         return Response(serializer.data)
+
+
+class MySemesters(APIView):
+    def get(self, request):
+        semesters = {}
+        for avaliacao in Avaliacao.objects.filter(user = request.user):
+            serializer = AvaliacaoSerializer(avaliacao)
+            semesters.setdefault(avaliacao.semestre_ita, []).append(serializer.data)
+
+        return Response(semesters)
+
+
+class SubmitAvaliacao(APIView):
+    def post(self, request):
+        user = request.user
+        semestre_ita = request.data.get("semestre_ita")
+        semestre_cronologico = request.data.get("semestre_cronologico")
+        disciplina = request.data.get("disciplina")
+        professor = request.data.get("professor")
+        nota = request.data.get("nota")
+
+        disciplina = get_object_or_404(Disciplina, slug__iexact = disciplina)
+        professor = get_object_or_404(Professor, name__iexact = professor)
+
+        avaliacao = Avaliacao(user = user, semestre_ita = semestre_ita, semestre_cronologico = semestre_cronologico,
+                              disciplina = disciplina, professor = professor, nota = nota)
+        avaliacao.save()
+
+        return Response({"success": True})

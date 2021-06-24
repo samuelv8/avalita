@@ -40,7 +40,7 @@
           <div class="navbar-item">
             <div class="buttons">
               <template v-if="$store.state.isAuthenticated">
-                <router-link to="/aluno" class="button is-success">
+                <router-link to="/area_aluno" class="button is-success">
                   <span class="icon"
                     ><i class="fas fa-graduation-cap"></i
                   ></span>
@@ -123,6 +123,7 @@ export default {
       return url.substring(6, url.length - 1);
     },
     sair() {
+      axios.post("/api/v1/auth/token/logout/")
       axios.defaults.headers.common["Authorization"] = "";
       localStorage.removeItem("token");
       localStorage.removeItem("username");

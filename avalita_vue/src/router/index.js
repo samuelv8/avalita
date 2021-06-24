@@ -25,7 +25,7 @@ const routes = [
     component: Login
   },
   {
-    path: '/aluno',
+    path: '/area_aluno',
     name: 'AreaAluno',
     component: AreaAluno
   },

@@ -13,7 +13,7 @@
           </div>
 
           <div class="field">
-            <label>Password</label>
+            <label>Password (mínimo de 8 caracteres)</label>
             <div class="control">
               <input type="password" class="input" v-model="password" />
             </div>
@@ -25,6 +25,7 @@
               <input type="password" class="input" v-model="password2" />
             </div>
           </div>
+
 
           <div class="notification is-danger" v-if="errors.length">
             <p v-for="error in errors" v-bind:key="error">{{ error }}</p>
@@ -56,6 +57,7 @@ export default {
       login_ga: "",
       password: "",
       password2: "",
+      ano_entrada:"",
       errors: [],
     };
   },

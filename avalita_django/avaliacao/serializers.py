@@ -10,6 +10,7 @@ class DisciplinaSerializer(serializers.ModelSerializer):
             "id",
             "name",
             "get_absolute_url",
+            "slug",
         )
 
 
@@ -45,7 +46,8 @@ class AvaliacaoSerializer(serializers.ModelSerializer):
         model = Avaliacao
         fields = (
             "id",
-            "semestre",
+            "semestre_ita",
+            "semestre_cronologico",
             "disciplina",
             "professor",
             "nota",
