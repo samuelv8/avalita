@@ -1,4 +1,7 @@
 env/
+venv/
+.idea/
 *__pycache__/
 avalita_django/db.sqlite3
 .vscode/
+db.sqlite3
