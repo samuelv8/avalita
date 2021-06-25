@@ -3,56 +3,70 @@
     <div class="columns is-multiline" v-if="semestre_atual == -1">
       <div class="column is-12">
         <h1 class="title">Área do Aluno</h1>
-        <h1 class="subtitle">{{email}}</h1>
+        <h1 class="subtitle">{{ email }}</h1>
+        <router-link to="/nova_avaliacao" class="button is-dark">
+          <span class="icon"><i class="fas fa-plus"></i></span>
+          <span>Nova Avaliação</span>
+        </router-link>
       </div>
 
-      <div class = "column is-6">
+      <div class="column is-6">
         <h1 class="subtitle">FUND</h1>
-        <div class = "column is-12">
-          <button class="button is-dark mr-5" @click = "setSemestre(1)"
-          >1º FUND - 1º semestre</button
+        <div class="column is-12">
+          <button class="button is-dark mr-5" @click="setSemestre(1)"
+          >1º FUND - 1º semestre
+          </button
           >
-          <button class="button is-dark mr-5" @click = "setSemestre(2)"
-          >1º FUND - 2º semestre</button
+          <button class="button is-dark mr-5" @click="setSemestre(2)"
+          >1º FUND - 2º semestre
+          </button
           >
         </div>
 
-        <div class = "column is-12">
-          <button class="button is-dark mr-5" @click = "setSemestre(3)"
-          >2º FUND - 1º semestre</button
+        <div class="column is-12">
+          <button class="button is-dark mr-5" @click="setSemestre(3)"
+          >2º FUND - 1º semestre
+          </button
           >
-          <button class="button is-dark mr-5" @click = "setSemestre(4)"
-          >2º FUND - 2º semestre</button
+          <button class="button is-dark mr-5" @click="setSemestre(4)"
+          >2º FUND - 2º semestre
+          </button
           >
         </div>
       </div>
 
-      <div class = "column is-6">
+      <div class="column is-6">
         <h1 class="subtitle">PROF</h1>
-        <div class = "column is-12">
-          <button class="button is-dark mr-5" @click = "setSemestre(5)"
-          >1º PROF - 1º semestre</button
+        <div class="column is-12">
+          <button class="button is-dark mr-5" @click="setSemestre(5)"
+          >1º PROF - 1º semestre
+          </button
           >
-          <button class="button is-dark mr-5" @click = "setSemestre(6)"
-          >1º PROF - 2º semestre</button
-          >
-        </div>
-
-        <div class = "column is-12">
-          <button class="button is-dark mr-5" @click = "setSemestre(7)"
-          >2º PROF - 1º semestre</button
-          >
-          <button class="button is-dark mr-5" @click = "setSemestre(8)"
-          >2º PROF - 2º semestre</button
+          <button class="button is-dark mr-5" @click="setSemestre(6)"
+          >1º PROF - 2º semestre
+          </button
           >
         </div>
 
-        <div class = "column is-12">
-          <button class="button is-dark mr-5" @click = "setSemestre(9)"
-          >3º PROF - 1º semestre</button
+        <div class="column is-12">
+          <button class="button is-dark mr-5" @click="setSemestre(7)"
+          >2º PROF - 1º semestre
+          </button
           >
-          <button class="button is-dark mr-5" @click = "setSemestre(10)"
-          >3º PROF - 2º semestre</button
+          <button class="button is-dark mr-5" @click="setSemestre(8)"
+          >2º PROF - 2º semestre
+          </button
+          >
+        </div>
+
+        <div class="column is-12">
+          <button class="button is-dark mr-5" @click="setSemestre(9)"
+          >3º PROF - 1º semestre
+          </button
+          >
+          <button class="button is-dark mr-5" @click="setSemestre(10)"
+          >3º PROF - 2º semestre
+          </button
           >
         </div>
       </div>
@@ -60,9 +74,9 @@
   </div>
 
   <div class="columns is-multiline" v-if="semestre_atual != -1">
-    <div class = "column is-6">
+    <div class="column is-6">
       <li v-for="avaliacao in semestres[semestre_atual]" :key="avaliacao.id">
-        Disciplina: {{avaliacao.disciplina.slug}}|Prof: {{avaliacao.professor.name}}|Nota:{{avaliacao.nota}}
+        Disciplina: {{ avaliacao.disciplina.slug }}|Prof: {{ avaliacao.professor.name }}|Nota:{{ avaliacao.nota }}
       </li>
 
       <h1 class="subtitle">Nova avaliação</h1>
@@ -70,21 +84,21 @@
         <div class="field">
           <label>Disciplina (ex: AED-34)</label>
           <div class="control">
-            <input type="text" class="input" v-model="disciplina" />
+            <input type="text" class="input" v-model="disciplina"/>
           </div>
         </div>
 
         <div class="field">
           <label>Nome do professor</label>
           <div class="control">
-            <input type="text" class="input" v-model="professor" />
+            <input type="text" class="input" v-model="professor"/>
           </div>
         </div>
 
         <div class="field">
           <label>Semestre em que você cursou a eletiva (ex: 2020.1)</label>
           <div class="control">
-            <input type="text" class="input" v-model="ano" />
+            <input type="text" class="input" v-model="ano"/>
           </div>
         </div>
 
@@ -102,18 +116,18 @@
         </div>
       </form>
     </div>
-    <div class = "column is-12">
-      <button class="button is-dark mr-5" @click = "submitForm()"
-      >Submeter avaliação</button
+    <div class="column is-12">
+      <button class="button is-dark mr-5" @click="submitForm()"
+      >Submeter avaliação
+      </button
       >
-      <button class="button grey mr-5" @click = "setSemestre(-1)"
-      >Retornar</button
+      <button class="button grey mr-5" @click="setSemestre(-1)"
+      >Retornar
+      </button
       >
 
     </div>
   </div>
-
-
 
 
 </template>
@@ -127,12 +141,12 @@ export default {
   data() {
     return {
       email: "alguem.alguem@ga.ita.br",
-      semestres:[],
-      semestre_atual:-1,
-      disciplina:"",
-      professor:"",
-      ano:"",
-      nota:"",
+      semestres: [],
+      semestre_atual: -1,
+      disciplina: "",
+      professor: "",
+      ano: "",
+      nota: "",
     };
   },
   mounted() {
@@ -151,7 +165,7 @@ export default {
       const response = await axios.get("/api/v1/my-semesters/");
       this.semestres = [null];
       for (let i = 1; i <= 10; i++)
-      this.semestres.push(response.data[i] || []);
+        this.semestres.push(response.data[i] || []);
     },
     setSemestre(semestre) {
       this.semestre_atual = semestre;
@@ -176,3 +190,4 @@ export default {
   },
 };
 </script>
+

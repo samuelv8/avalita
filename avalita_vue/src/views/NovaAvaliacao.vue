@@ -1,0 +1,87 @@
+<template>
+  <h1 class="subtitle">Nova avaliação</h1>
+  <form @submit.prevent="submitForm">
+    <div class="field">
+      <label>Disciplina</label>
+      <div class="control">
+        <input type="text" class="input" v-model="disciplina" placeholder="ABC-12"/>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Nome do professor</label>
+      <div class="control">
+        <input type="text" class="input" v-model="professor" placeholder="Fulano de Tal"/>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Semestre em que você cursou a eletiva</label>
+      <div class="control">
+        <input type="text" class="input" v-model="ano" placeholder="2020.1"/>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Nota dada a essa eletiva com o respectivo professor</label>
+      <div class="control">
+        <select v-model="nota">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+    </div>
+  </form>
+  <div class="column is-12">
+    <button class="button is-dark mr-5" @click="submitForm()">
+      Submeter avaliação
+    </button>
+  </div>
+</template>
+
+<script>
+import axios from "axios";
+
+export default {
+  name: "AreaAluno",
+  components: {},
+  data() {
+    return {
+      email: "alguem.alguem@ga.ita.br",
+      semestres: [],
+      semestre_atual: -1,
+      disciplina: "",
+      professor: "",
+      ano: "",
+      nota: "",
+    };
+  },
+  methods: {
+    async submitForm() {
+      axios.defaults.headers.common["Authorization"] = "Token " + this.$store.state.token;
+      const formData = {
+        disciplina: this.disciplina,
+        professor: this.professor,
+        semestre_ita: this.semestre_atual,
+        semestre_cronologico: this.ano,
+        nota: this.nota,
+      };
+
+      await axios
+          .post('/api/v1/submit-avaliacao/', formData)
+          .then((response) => {
+            this.disciplina = response.data;
+            this.$router.push('/area_aluno/');
+            alert("Você Submeteu uma Avaliação!")
+          })
+          .catch((error) => {
+            console.log(error);
+            alert(error)
+          });
+    },
+  }
+};
+</script>

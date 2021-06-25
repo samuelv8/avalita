@@ -7,6 +7,7 @@ import Disciplina from '../views/Disciplina.vue'
 import Cadastro from '../views/Cadastro.vue'
 import Login from '../views/Login.vue'
 import AreaAluno from '../views/AreaAluno.vue'
+import NovaAvaliacao from "../views/NovaAvaliacao"
 
 const routes = [
   {
@@ -28,6 +29,11 @@ const routes = [
     path: '/area_aluno',
     name: 'AreaAluno',
     component: AreaAluno
+  },
+  {
+    path: '/nova_avaliacao',
+    name: 'NovaAvaliacao',
+    component: NovaAvaliacao
   },
   {
     path: '/about',
