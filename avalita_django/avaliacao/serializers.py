@@ -46,8 +46,6 @@ class AvaliacaoSerializer(serializers.ModelSerializer):
         model = Avaliacao
         fields = (
             "id",
-            "semestre_ita",
-            "semestre_cronologico",
             "disciplina",
             "professor",
             "nota",

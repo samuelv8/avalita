@@ -4,7 +4,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 from .models import Avaliacao, Departamento, Disciplina, Professor
-from .serializers import AvaliacaoSerializer, DepartamentoSerializer, DisciplinaSerializer, MediaSerializer, ProfessorSerializer
+from .serializers import AvaliacaoSerializer, DepartamentoSerializer, DisciplinaSerializer, MediaSerializer, \
+    ProfessorSerializer
 
 
 class LatestDisciplinasList(APIView):
@@ -40,7 +41,7 @@ class BestMedias(APIView):
             {
                 'disciplina': k[0],
                 'professor': k[1],
-                'nota': round(sum(v)/len(v), 2),
+                'nota': round(sum(v) / len(v), 2),
                 'count': len(v),
             } for (k, v) in notas.items())
         medias.sort(key=lambda x: x['nota'], reverse=True)
@@ -62,7 +63,7 @@ class BestMediasDepartamento(APIView):
             {
                 'disciplina': k[0],
                 'professor': k[1],
-                'nota': round(sum(v)/len(v), 2),
+                'nota': round(sum(v) / len(v), 2),
                 'count': len(v),
             } for (k, v) in notas.items())
         medias.sort(key=lambda x: x['nota'], reverse=True)
@@ -111,30 +112,24 @@ class ProfessoresDisciplina(APIView):
         return Response(serializer.data)
 
 
-class MySemesters(APIView):
-    def get(self, request):
-        semesters = {}
-        for avaliacao in Avaliacao.objects.filter(user = request.user):
-            serializer = AvaliacaoSerializer(avaliacao)
-            semesters.setdefault(avaliacao.semestre_ita, []).append(serializer.data)
-
-        return Response(semesters)
+class MyAvaliacoes(APIView):
+    def get(self, request, format=None):
+        my_avals = Avaliacao.objects.filter(user=request.user)
+        serializer = AvaliacaoSerializer(my_avals, many=True)
+        return Response(serializer.data)
 
 
 class SubmitAvaliacao(APIView):
     def post(self, request):
         user = request.user
-        semestre_ita = request.data.get("semestre_ita")
-        semestre_cronologico = request.data.get("semestre_cronologico")
         disciplina = request.data.get("disciplina")
         professor = request.data.get("professor")
         nota = request.data.get("nota")
 
-        disciplina = get_object_or_404(Disciplina, slug__iexact = disciplina)
-        professor = get_object_or_404(Professor, name__iexact = professor)
+        disciplina = get_object_or_404(Disciplina, slug__iexact=disciplina)
+        professor = get_object_or_404(Professor, name__iexact=professor)
 
-        avaliacao = Avaliacao(user = user, semestre_ita = semestre_ita, semestre_cronologico = semestre_cronologico,
-                              disciplina = disciplina, professor = professor, nota = nota)
+        avaliacao = Avaliacao(user=user, disciplina=disciplina, professor=professor, nota=nota)
         avaliacao.save()
 
         return Response({"success": True})

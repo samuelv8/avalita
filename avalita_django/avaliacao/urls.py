@@ -2,7 +2,6 @@ from django.urls import path
 
 from avaliacao import views
 
-
 urlpatterns = [
     path('latest-disciplinas/', views.LatestDisciplinasList.as_view()),
     path('best-medias/', views.BestMedias.as_view()),
@@ -14,6 +13,6 @@ urlpatterns = [
          views.DisciplinaDetail.as_view()),
     path('dpto/<slug:departamento_slug>/<slug:disciplina_slug>/p/',
          views.ProfessoresDisciplina.as_view()),
-    path('my-semesters/', views.MySemesters.as_view()),
+    path('my-avals/', views.MyAvaliacoes.as_view()),
     path('submit-avaliacao/', views.SubmitAvaliacao.as_view()),
 ]

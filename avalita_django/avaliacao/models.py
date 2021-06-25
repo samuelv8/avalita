@@ -52,8 +52,6 @@ class Professor(models.Model):
 class Avaliacao(models.Model):
     user = models.ForeignKey(
         User, related_name='avaliacoes', on_delete=models.CASCADE)
-    semestre_ita = models.IntegerField()
-    semestre_cronologico = models.CharField(max_length=6)
     disciplina = models.ForeignKey(
         Disciplina, related_name='avaliacoes', on_delete=models.CASCADE)
     professor = models.ForeignKey(
