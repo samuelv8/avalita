@@ -4,6 +4,6 @@ import router from './router'
 import store from './store'
 import axios from 'axios'
 
-axios.defaults.baseURL = "apiavalita.avalita.codes"
+axios.defaults.baseURL = "https://apiavalita.avalita.codes"
 
 createApp(App).use(store).use(router, axios).mount('#app')
