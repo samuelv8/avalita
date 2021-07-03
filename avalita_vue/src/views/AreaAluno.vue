@@ -39,7 +39,7 @@
               </div>
               <div class="column is-3 has-text-centered">
                 <!--                <div class="button">-->
-                <span class="icon" @click="onClick(aval.id)"><i class="fas fa-trash"></i></span>
+                <span class="icon" @click="delAval(aval.id)"><i class="fas fa-trash"></i></span>
                 <!--                </div>-->
               </div>
             </div>
@@ -70,10 +70,10 @@ export default {
     this.getData();
   },
   methods: {
-    onClick(id) {
+    async delAval(id) {
       console.log(id);
-      /* chamar aqui a função assíncrona para remover a avaliação com este id
-      (cuidado, o id não é o mesmo que o index do vetor 'avals' acima) */
+      await axios.delete('/api/v1/delete-avaliacao/', { data: {"id": id} } );
+      this.usr.avals = this.usr.avals.filter(i => i.id !== id)
     },
     async getData() {
       axios.defaults.headers.common["Authorization"] =
@@ -95,6 +95,7 @@ export default {
       await axios
           .get(`/api/v1/my-avals/`, requestAvals)
           .then((response) => {
+            console.log(response.data);
             this.usr.avals = response.data;
           })
           .catch((error) => {

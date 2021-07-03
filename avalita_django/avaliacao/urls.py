@@ -15,4 +15,5 @@ urlpatterns = [
          views.ProfessoresDisciplina.as_view()),
     path('my-avals/', views.MyAvaliacoes.as_view()),
     path('submit-avaliacao/', views.SubmitAvaliacao.as_view()),
+    path('delete-avaliacao/', views.DeleteAvaliacao.as_view()),
 ]

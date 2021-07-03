@@ -2,6 +2,7 @@ from django.http.response import Http404
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import status
 
 from .models import Avaliacao, Departamento, Disciplina, Professor
 from .serializers import AvaliacaoSerializer, DepartamentoSerializer, DisciplinaSerializer, MediaSerializer, \
@@ -133,3 +134,13 @@ class SubmitAvaliacao(APIView):
         avaliacao.save()
 
         return Response({"success": True})
+
+
+class DeleteAvaliacao(APIView):
+    def delete(self, request):
+        print(request.data)
+        id = request.data.get("id")
+        aval_to_delete = Avaliacao.objects.get(id=id)
+        aval_to_delete.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    
