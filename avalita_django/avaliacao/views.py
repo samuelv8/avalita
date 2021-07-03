@@ -1,3 +1,4 @@
+from django.db.models import query
 from django.http.response import Http404
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
@@ -131,9 +132,11 @@ class SubmitAvaliacao(APIView):
         professor = get_object_or_404(Professor, name__iexact=professor)
 
         avaliacao = Avaliacao(user=user, disciplina=disciplina, professor=professor, nota=nota)
-        avaliacao.save()
+        if not Avaliacao.objects.filter(user=user, disciplina=disciplina, professor=professor):
+            avaliacao.save()
+            return Response({"success": True})
 
-        return Response({"success": True})
+        return Response(status=status.HTTP_403_FORBIDDEN)
 
 
 class DeleteAvaliacao(APIView):

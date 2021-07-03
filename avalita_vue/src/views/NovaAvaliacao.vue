@@ -77,21 +77,20 @@ export default {
           .then((response) => {
             this.disciplina = response.data;
             this.$router.push('/area_aluno/');
-            alert("Você Submeteu uma Avaliação!")
+            alert("Você Submeteu uma Avaliação!");
           })
           .catch((error) => {
-            console.log(error);
-            alert(error)
+            if (error.response) {
+              console.log(error);
+              if (error.response.status == 403) {
+                alert("Avaliação já feita!");
+              } else {
+                alert(error);
+              }
+            }
           });
+          
     },
-    /* pegar disciplinas e professores, fazer drop-down
-    async getDisciplinas() {
-      axios.defaults.headers.common["Authorization"] =
-        "Token " + this.$store.state.token;
-    },
-    async getProfessores() {
-
-    }, */
   }
 };
 </script>

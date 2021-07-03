@@ -72,7 +72,7 @@ export default {
   methods: {
     async delAval(id) {
       await axios.delete('/api/v1/delete-avaliacao/', { data: {"id": id} } );
-      this.usr.avals = this.usr.avals.filter(i => i.id !== id)
+      this.usr.avals = this.usr.avals.filter(i => i.id !== id);
     },
     async getData() {
       axios.defaults.headers.common["Authorization"] =
