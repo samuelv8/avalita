@@ -138,7 +138,6 @@ class SubmitAvaliacao(APIView):
 
 class DeleteAvaliacao(APIView):
     def delete(self, request):
-        print(request.data)
         id = request.data.get("id")
         aval_to_delete = Avaliacao.objects.get(id=id)
         aval_to_delete.delete()
