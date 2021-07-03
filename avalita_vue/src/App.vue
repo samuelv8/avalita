@@ -2,16 +2,17 @@
   <div id="wrapper">
     <nav class="navbar is-dark">
       <div class="navbar-brand">
-        <router-link to="/" class="navbar-item"
-          ><strong>Avalita</strong></router-link
-        >
+        <router-link id="oi" to="/" class="navbar-item">
+          <img src="https://i.imgur.com/HrV8xwb.png" alt="logotipo do avalita"
+          />
+        </router-link>
 
         <a
-          class="navbar-burger"
-          aria-label="menu"
-          aria-expanded="false"
-          data-target="navbar-menu"
-          @click="showMobileMenu = !showMobileMenu"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navbar-menu"
+            @click="showMobileMenu = !showMobileMenu"
         >
           <span aria-hidden="true"></span>
 
@@ -22,19 +23,20 @@
       </div>
 
       <div
-        class="navbar-menu"
-        id="navbar-menu"
-        v-bind:class="{ 'is-active': showMobileMenu }"
+          class="navbar-menu"
+          id="navbar-menu"
+          v-bind:class="{ 'is-active': showMobileMenu }"
       >
         <div class="navbar-end">
           <router-link
-            v-for="dpto in departamentos"
-            :key="dpto.id"
-            :to="dpto.get_absolute_url"
-            class="navbar-item"
-            >{{
+              v-for="dpto in departamentos"
+              :key="dpto.id"
+              :to="dpto.get_absolute_url"
+              class="navbar-item"
+          >{{
               get_slug_from_url(dpto.get_absolute_url).toUpperCase()
-            }}</router-link
+            }}
+          </router-link
           >
 
           <div class="navbar-item">
@@ -42,7 +44,7 @@
               <template v-if="$store.state.isAuthenticated">
                 <router-link to="/area_aluno" class="button is-success">
                   <span class="icon"
-                    ><i class="fas fa-graduation-cap"></i
+                  ><i class="fas fa-graduation-cap"></i
                   ></span>
 
                   <span>Área do Aluno</span>
@@ -55,10 +57,12 @@
 
               <template v-else>
                 <router-link to="/cadastro" class="button is-light"
-                  >Cadastre-se</router-link
+                >Cadastre-se
+                </router-link
                 >
                 <router-link to="/login" class="button is-light"
-                  >Login</router-link
+                >Login
+                </router-link
                 >
               </template>
             </div>
@@ -68,14 +72,14 @@
     </nav>
 
     <div
-      class="is-loading-bar has-text-centered"
-      v-bind:class="{ 'is-loading': $store.state.isLoading }"
+        class="is-loading-bar has-text-centered"
+        v-bind:class="{ 'is-loading': $store.state.isLoading }"
     >
       <div class="lds-dual-ring"></div>
     </div>
 
     <section class="section">
-      <router-view />
+      <router-view/>
     </section>
 
     <footer class="footer">
@@ -92,6 +96,7 @@ export default {
     return {
       showMobileMenu: false,
       departamentos: [],
+      h: 42,
     };
   },
   beforeCreate() {
@@ -110,13 +115,13 @@ export default {
     async getAllDepartamentos() {
       this.$store.commit("setIsLoading", true);
       await axios
-        .get("/api/v1/all-departamentos/")
-        .then((response) => {
-          this.departamentos = response.data;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+          .get("/api/v1/all-departamentos/")
+          .then((response) => {
+            this.departamentos = response.data;
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       this.$store.commit("setIsLoading", false);
     },
     get_slug_from_url(url) {
@@ -137,11 +142,13 @@ export default {
 
 <style lang="scss">
 @import "../node_modules/bulma";
+
 .lds-dual-ring {
   display: inline-block;
   width: 80px;
   height: 80px;
 }
+
 .lds-dual-ring:after {
   content: " ";
   display: block;
@@ -153,6 +160,7 @@ export default {
   border-color: #ccc transparent #ccc transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
+
 @keyframes lds-dual-ring {
   0% {
     transform: rotate(0deg);
@@ -161,11 +169,13 @@ export default {
     transform: rotate(360deg);
   }
 }
+
 .is-loading-bar {
   height: 0;
   overflow: hidden;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+
   &.is-loading {
     height: 80px;
   }

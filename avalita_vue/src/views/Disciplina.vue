@@ -4,7 +4,7 @@
       <strong v-if="disciplina.get_absolute_url">
         {{
           get_disciplina_slug_from_url(
-            disciplina.get_absolute_url
+              disciplina.get_absolute_url
           ).toUpperCase()
         }}
       </strong>
@@ -12,8 +12,8 @@
     </h1>
 
     <li
-      v-for="media in medias"
-      v-bind:key="(media.disciplina.id, media.professor.id)"
+        v-for="media in medias"
+        v-bind:key="(media.disciplina.id, media.professor.id)"
     >
       Nota: <strong> {{ media.nota }} </strong>/5.00 |
       <span>
@@ -21,9 +21,7 @@
       </span>
       |
       <span>
-        <router-link :to="media.professor.get_absolute_url">
-          Prof. {{ media.professor.name }}
-        </router-link>
+        <span>Prof. {{ media.professor.name }}</span>
       </span>
     </li>
   </div>
@@ -31,6 +29,7 @@
 
 <script>
 import axios from "axios";
+
 export default {
   name: "Disciplina",
   data() {
@@ -49,13 +48,13 @@ export default {
       const departamento_slug = this.$route.params.departamento_slug;
       const disciplina_slug = this.$route.params.disciplina_slug;
       await axios
-        .get(`/api/v1/best-medias/${departamento_slug}/${disciplina_slug}`)
-        .then((response) => {
-          this.medias = response.data;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+          .get(`/api/v1/best-medias/${departamento_slug}/${disciplina_slug}`)
+          .then((response) => {
+            this.medias = response.data;
+          })
+          .catch((error) => {
+            console.log(error);
+          });
 
       this.$store.commit("setIsLoading", false);
     },
@@ -64,13 +63,13 @@ export default {
       const departamento_slug = this.$route.params.departamento_slug;
       const disciplina_slug = this.$route.params.disciplina_slug;
       await axios
-        .get(`/api/v1/dpto/${departamento_slug}/${disciplina_slug}/p`)
-        .then((response) => {
-          this.professores = response.data;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+          .get(`/api/v1/dpto/${departamento_slug}/${disciplina_slug}/p`)
+          .then((response) => {
+            this.professores = response.data;
+          })
+          .catch((error) => {
+            console.log(error);
+          });
 
       this.$store.commit("setIsLoading", false);
     },
@@ -79,14 +78,14 @@ export default {
       const departamento_slug = this.$route.params.departamento_slug;
       const disciplina_slug = this.$route.params.disciplina_slug;
       await axios
-        .get(`/api/v1/dpto/${departamento_slug}/${disciplina_slug}`)
-        .then((response) => {
-          this.disciplina = response.data;
-          document.title = this.disciplina.name + " | Avalita";
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+          .get(`/api/v1/dpto/${departamento_slug}/${disciplina_slug}`)
+          .then((response) => {
+            this.disciplina = response.data;
+            document.title = this.disciplina.name + " | Avalita";
+          })
+          .catch((error) => {
+            console.log(error);
+          });
 
       this.$store.commit("setIsLoading", false);
     },

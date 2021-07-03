@@ -1,8 +1,9 @@
 <template>
   <div class="home">
-    <section class="hero is-medium is-dark mb-6">
+    <section class="hero is-small is-dark mb-6">
       <div class="hero-body has-text-centered">
-        <p class="title mb-6">Bem-vindo(a) ao Avalita</p>
+        <img src="https://i.imgur.com/HrV8xwb.png" alt="logotipo do avalita"/>
+        <p class="title mb-5 mt-4">Bem-vindo(a) ao Avalita</p>
         <p class="subtitle">Eletivas avaliadas por iteanos</p>
       </div>
     </section>
@@ -15,15 +16,15 @@
       </div>
 
       <div
-        class="column is-3"
-        v-for="media in medias"
-        v-bind:key="(media.disciplina.id, media.professor.id)"
+          class="column is-3"
+          v-for="media in medias"
+          v-bind:key="(media.disciplina.id, media.professor.id)"
       >
         <div class="box">
           <h3 class="is-size-4">
             {{
               get_disciplina_slug_from_url(
-                media.disciplina.get_absolute_url
+                  media.disciplina.get_absolute_url
               ).toUpperCase()
             }}
           </h3>
@@ -36,8 +37,6 @@
             Nota: <strong>{{ media.nota }}</strong> ({{ media.count }}
             {{ media.count == 1 ? "avaliação" : "avaliações" }})
           </p>
-
-          Ver detalhes
         </div>
       </div>
     </div>
@@ -62,13 +61,13 @@ export default {
     async getMedias() {
       this.$store.commit("setIsLoading", true);
       await axios
-        .get("/api/v1/best-medias/")
-        .then((response) => {
-          this.medias = response.data;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+          .get("/api/v1/best-medias/")
+          .then((response) => {
+            this.medias = response.data;
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       this.$store.commit("setIsLoading", false);
     },
     get_disciplina_slug_from_url(url) {
