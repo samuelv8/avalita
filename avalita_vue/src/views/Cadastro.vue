@@ -10,9 +10,9 @@
             <div class="control">
               <input
                 type="text"
-                placeholder="nome.sobrenome"
                 class="input"
                 v-model="login_ga"
+                placeholder="nome.sobrenome"
               />
             </div>
           </div>
