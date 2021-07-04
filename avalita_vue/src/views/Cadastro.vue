@@ -8,7 +8,12 @@
           <div class="field">
             <label>Login @ga</label>
             <div class="control">
-              <input type="text" class="input" v-model="login_ga" />
+              <input
+                type="text"
+                placeholder="nome.sobrenome"
+                class="input"
+                v-model="login_ga"
+              />
             </div>
           </div>
 
@@ -25,7 +30,6 @@
               <input type="password" class="input" v-model="password2" />
             </div>
           </div>
-
 
           <div class="notification is-danger" v-if="errors.length">
             <p v-for="error in errors" v-bind:key="error">{{ error }}</p>
@@ -57,7 +61,7 @@ export default {
       login_ga: "",
       password: "",
       password2: "",
-      ano_entrada:"",
+      ano_entrada: "",
       errors: [],
     };
   },
