@@ -47,7 +47,7 @@ class BestMedias(APIView):
                 'count': len(v),
             } for (k, v) in notas.items())
         medias.sort(key=lambda x: x['nota'], reverse=True)
-        serializer = MediaSerializer(medias, many=True)
+        serializer = MediaSerializer(medias[:4], many=True)
         return Response(serializer.data)
 
 
